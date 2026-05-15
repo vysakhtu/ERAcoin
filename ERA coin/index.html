@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERA Coin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6b6b',
+                        secondary: '#4ecdc4',
+                        dark: '#1a1a2e',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        .coin-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-30 backdrop-blur-md py-4 px-6 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center coin-animation">
+                    <i class="fas fa-coins text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold">ERA<span class="text-primary">COIN</span></h1>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <button onclick="scrollToSection('home')" class="hover:text-primary transition-colors">Home</button>
+                <button onclick="scrollToSection('about')" class="hover:text-primary transition-colors">About</button>
+                <button onclick="scrollToSection('features')" class="hover:text-primary transition-colors">Features</button>
+                <button onclick="scrollToSection('roadmap')" class="hover:text-primary transition-colors">Roadmap</button>
+                <button onclick="scrollToSection('community')" class="hover:text-primary transition-colors">Community</button>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="https://t.me/eracoin_meme" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 bg-[#0088cc] hover:bg-[#00a6ff] text-white px-4 py-2 rounded-full transition-all duration-200 shadow-lg">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span class="hidden sm:inline">Telegram</span>
+                </a>
+                <button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:from-primary hover:to-secondary transition-all duration-300 shadow-lg">
+                    Buy ERA
+                </button>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        The Future of <span class="gradient-text">Meme Coins</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-lg">
+                        ERA Coin is revolutionizing the crypto space with its unique community-driven approach and innovative features.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-primary hover:to-secondary transition-all duration-300 shadow-lg pulse">
+                            <i class="fas fa-shopping-cart mr-2"></i> Buy ERA Now
+                        </button>
+                        <button class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fas fa-chart-line mr-2"></i> Chart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-primary to-secondary opacity-20 absolute -top-6 -left-6 animate-pulse"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-secondary to-primary opacity-20 absolute -bottom-6 -right-6 animate-pulse"></div>
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center coin-animation">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">💰</div>
+                                <div class="text-4xl font-bold">ERA</div>
+                                <div class="text-sm mt-2">Meme Coin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-black bg-opacity-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text">10M+</div>
+                    <div class="text-gray-400 mt-2">Total Supply</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text">$100M+ SOON</div>
+                    <div class="text-gray-400 mt-2">Market Cap</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text">24K+</div>
+                    <div class="text-gray-400 mt-2">Holders</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text">100%</div>
+                    <div class="text-gray-400 mt-2">Community Owned</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">What is <span class="gradient-text">ERA</span>?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    ERA Coin is more than just another meme token. It's a movement built on community, innovation, and fun.The next chapter in our ecosystem. ERA is the official successor to UC, designed for a new age of liquidity and community growth. The old era ends, the ERA begins
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Meme Coin" class="rounded-2xl shadow-xl">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">The Power of Community</h3>
+                    <p class="text-gray-300 mb-6">
+                        ERA Coin was born from the idea that crypto should be accessible, fun, and community-driven. Our decentralized approach ensures that every holder has a voice in shaping the future of the project.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        With our innovative features like the Auto-Lock system, community votes, and reward programs, ERA Coin offers a unique experience that goes beyond traditional meme coins.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold">Transparent Development</h4>
+                                <p class="text-gray-400 text-sm">All code is open-source and publicly audited</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold">Community Governance</h4>
+                                <p class="text-gray-400 text-sm">Every holder can vote on key decisions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold">Innovative Features</h4>
+                                <p class="text-gray-400 text-sm">Auto-lock, rewards, and more</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-black bg-opacity-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Why Choose <span class="gradient-text">ERA</span>?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Discover the unique features that set ERA Coin apart from other meme tokens.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-2xl card">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Auto-Lock System</h3>
+                    <p class="text-gray-400">
+                        Smart contracts automatically lock liquidity for long-term stability and security for holders.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-2xl card">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-secondary to-primary flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Community Governance</h3>
+                    <p class="text-gray-400">
+                        Every holder can participate in decision-making through democratic voting mechanisms.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-50 p-8 rounded-2xl card">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center mb-6">
+                        <i class="fas fa-gift text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Holder Rewards</h3>
+                    <p class="text-gray-400">
+                        Passive income opportunities through staking, referral bonuses, and community rewards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our <span class="gradient-text">Roadmap</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Join us on this exciting journey to revolutionize the meme coin space.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Vertical line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-secondary"></div>
+                
+                <div class="space-y-12">
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl">
+                                <div class="text-primary font-bold text-lg mb-2">Q1 2026</div>
+                                <h3 class="text-xl font-bold mb-2">Project Launch</h3>
+                                <p class="text-gray-400">Initial token launch and community building</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary border-4 border-gray-900"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-secondary to-primary border-4 border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl">
+                                <div class="text-secondary font-bold text-lg mb-2">Q2 2026</div>
+                                <h3 class="text-xl font-bold mb-2">Exchange Listings</h3>
+                                <p class="text-gray-400">List on major exchanges and increase liquidity</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl">
+                                <div class="text-primary font-bold text-lg mb-2">Q3 2026</div>
+                                <h3 class="text-xl font-bold mb-2">Community Events</h3>
+                                <p class="text-gray-400">Host virtual and physical events for holders</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-primary to-secondary border-4 border-gray-900"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                    
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-secondary to-primary border-4 border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl">
+                                <div class="text-secondary font-bold text-lg mb-2">Q4 2026</div>
+                                <h3 class="text-xl font-bold mb-2">Global Expansion</h3>
+                                <p class="text-gray-400">International marketing and new partnerships</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-black bg-opacity-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Join Our <span class="gradient-text">Community</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Connect with thousands of passionate ERA Coin holders worldwide.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">24K+</div>
+                    <div class="text-gray-400">Active Holders</div>
+                </div>
+                <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">50K+</div>
+                    <div class="text-gray-400">Telegram Members</div>
+                </div>
+                <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">10K+</div>
+                    <div class="text-gray-400">Discord Users</div>
+                </div>
+                <div class="bg-gray-900 bg-opacity-50 p-6 rounded-xl text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">100K+</div>
+                    <div class="text-gray-400">Twitter Followers</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <button class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full transition-all duration-300">
+                    <i class="fab fa-telegram-plane mr-2"></i> Join Telegram
+                </button>
+                <button class="flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full transition-all duration-300">
+                    <i class="fab fa-discord mr-2"></i> Join Discord
+                </button>
+                <button class="flex items-center justify-center bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full transition-all duration-300">
+                    <i class="fab fa-twitter mr-2"></i> Follow Twitter
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Join the Era?</h2>
+            <p class="text-gray-400 mb-10 text-xl max-w-2xl mx-auto">
+                Don't miss out on the next big thing in meme coins. Get started with ERA today!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button class="bg-gradient-to-r from-primary to-secondary text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-primary hover:to-secondary transition-all duration-300 shadow-lg">
+                    <i class="fas fa-shopping-cart mr-2"></i> Buy ERA Now
+                </button>
+                <button class="border-2 border-primary text-primary px-10 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+                    <i class="fas fa-info-circle mr-2"></i> Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                            <i class="fas fa-coins text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold">ERA<span class="text-primary">COIN</span></h2>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The future of meme coins powered by community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><button onclick="scrollToSection('home')" class="text-gray-400 hover:text-primary">Home</button></li>
+                        <li><button onclick="scrollToSection('about')" class="text-gray-400 hover:text-primary">About</button></li>
+                        <li><button onclick="scrollToSection('features')" class="text-gray-400 hover:text-primary">Features</button></li>
+                        <li><button onclick="scrollToSection('roadmap')" class="text-gray-400 hover:text-primary">Roadmap</button></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Whitepaper</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Support Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Get the latest updates</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 bg-gray-800 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="bg-gradient-to-r from-primary to-secondary px-4 py-2 rounded-r-lg hover:opacity-90">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2026 ERA COIN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
